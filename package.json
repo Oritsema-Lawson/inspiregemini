@@ -1,0 +1,15 @@
+{
+  "name": "inspiregemini",
+  "version": "1.0.0",
+  "description": "Generate inspirational quotes",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oritsema Lawson",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^36.0.1",
+    "toastify-js": "^1.12.0"
+  }
+}

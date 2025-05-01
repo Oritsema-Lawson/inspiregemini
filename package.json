@@ -1,10 +1,11 @@
 {
   "name": "inspiregemini",
+  "productName": "inspiregemini",
   "version": "1.0.0",
   "description": "Generate inspirational quotes",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "author": "Oritsema Lawson",
   "license": "MIT",

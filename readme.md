@@ -18,14 +18,19 @@ The idea is simple: create a desktop app where you can:
 5.  Preview the final image.
 6.  Let you save the picture to your computer.
 
-### Features (So Far/Planned)
+### Completed
 
-* Picking images.
-* Choosing a theme for quotes.
+* Picking images and themes.
 * Getting quotes from the Gemini API.
 * Putting the quote on the image (with Canvas).
 * Showing a preview.
-* Saving the picture.
+
+### To do
+
+* Refactoring/General cleanup.
+* Text wrapping.
+* Saving the image to disk.
+* Remake the UI from scratch.
 
 ### Based On
 
@@ -33,4 +38,4 @@ The structure, current renderer (will fully rework the ui) and boilerplate code 
 
 ### Getting Started
 
-(Instructions on how to set up and run the project will go here later as the project takes shape.)
+(Instructions on how to set up and run the project will go here once the project is completed.)

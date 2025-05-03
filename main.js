@@ -1,7 +1,7 @@
 // Import modules.
 const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const path = require('path');
-const { isatty } = require('tty');
+const genai = require('@google/genai');
 
 // Store OS and environment.
 const isMac = process.platform === 'darwin';
@@ -52,9 +52,11 @@ const menu = [{ role: 'fileMenu', /* Don't need more than this */ }];
 
 // IPC Handlers
 // Listen for 'text:generate' message from renderer and return text to renderer
-ipcMain.on('text:generate', (e, options) => {
-    let resultText = `Theme is ${options['text']}`;
-    //Have logic for generating text here
+ipcMain.on('text:generate', async (e, options) => {
+    console.log(`Theme is ${options['theme']}, and api key is ${options['api']}.`);
+
+    const response = await getQuote(options['api'], options['theme']);
+    const resultText = response.text;
     console.log(resultText);
     // Send 'text:generatedtext' message back to the renderer.
     mainWindow.webContents.send('text:generatedtext', { resultText });
@@ -67,3 +69,11 @@ app.on('window-all-closed', () => {
         app.quit();
     }
 });
+
+async function getQuote(apikey, theme) {
+    const ai = new genai.GoogleGenAI({ apiKey: apikey })
+    return await ai.models.generateContent({
+        model: "gemini-2.0-flash",
+        contents: `Give me a single inspirational quote within 8 words or less, on the following theme: ${theme}. Do not include ANY formatting, solely just the raw text.`,
+    });
+}
